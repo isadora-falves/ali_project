@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BookModule } from './book/book.module';
+import { GetBookUseCase } from './use-cases/get-book-use-case';
+import { BookController } from './controllers/book-controller';
 
 // injeção de dependencia do framework
 @Module({
-  imports: [BookModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, BookController],
+  providers: [AppService, GetBookUseCase],
 })
 export class AppModule {}
