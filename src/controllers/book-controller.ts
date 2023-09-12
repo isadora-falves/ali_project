@@ -2,6 +2,7 @@ import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { GetBookUseCase } from '../use-cases/get-book-use-case';
 import { CreateBookDto } from '../dto/create-book.dto';
 import { CreateBookUseCase } from '../use-cases/create-book-use-case';
+import { Book } from 'src/entities/book.entity';
 @Controller('book')
 export class BookController {
   constructor(
@@ -16,7 +17,7 @@ export class BookController {
 
   // poderiamos criar um dto para o output?
   @Post()
-  create(@Body() createBookDto: CreateBookDto): string {
+  create(@Body() createBookDto: CreateBookDto): Promise<Book> {
     return this.createBookUseCase.execute(createBookDto);
   }
 }
