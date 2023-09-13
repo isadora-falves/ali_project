@@ -11,6 +11,7 @@ async function bootstrap() {
     .setDescription('Descrição da Sua API')
     .setVersion('1.0')
     .addTag('endpoints')
+    .addBearerAuth() // This line adds the Bearer token authentication option
     .build();
   const document = SwaggerModule.createDocument(app, config);
 

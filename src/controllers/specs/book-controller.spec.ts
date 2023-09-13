@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { BookController } from './book-controller';
-import { GetBookUseCase } from '../use-cases/get-book-use-case';
+import { BookController } from '../book-controller';
+import { GetBookUseCase } from '../../use-cases/get-book-use-case';
 
 describe('BookController', () => {
   let controller: BookController;

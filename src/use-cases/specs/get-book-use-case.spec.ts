@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { GetBookUseCase } from './get-book-use-case';
+import { GetBookUseCase } from '../get-book-use-case';
 
 describe('GetBookUseCase', () => {
   let useCase: GetBookUseCase;

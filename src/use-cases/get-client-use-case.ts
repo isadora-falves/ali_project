@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class GetBookUseCase {
+export class GetClientUseCase {
   execute(id: number) {
-    return `This action returns a #${id} book`;
+    return `This action returns a #${id} client`;
   }
 }

@@ -1,16 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
 
 @Entity()
-export class Book extends BaseEntity {
+export class Client extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  title: string;
+  name: string;
 
   @Column()
-  author: string;
+  email: string;
 
   @Column()
-  publicationYear: number;
+  years: number;
 }

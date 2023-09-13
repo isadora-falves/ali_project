@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GetBookUseCase } from './use-cases/get-book-use-case';
-import { BookController } from './controllers/book-controller';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CreateBookUseCase } from './use-cases/create-book-use-case';
-import { BooksRepository } from './repository/books-repository';
+
 import { DataSource } from 'typeorm';
-import { Book } from './entities/book.entity';
+import { UsersModule } from './modules/users.module';
+import { ClientsModule } from './modules/clients.module';
+
 // injeção de dependencia do framework
 @Module({
   imports: [
@@ -21,11 +21,12 @@ import { Book } from './entities/book.entity';
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Caminho para as entidades do TypeORM
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Book]),
+    UsersModule,
+    ClientsModule,
   ],
 
-  controllers: [AppController, BookController],
-  providers: [AppService, GetBookUseCase, CreateBookUseCase, BooksRepository],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}
